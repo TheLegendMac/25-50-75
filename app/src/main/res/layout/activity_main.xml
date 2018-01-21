@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.macrealstudios.practiceset2.MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/scoreLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout style="@style/tableLayout">
+
+            <TextView
+                style="@style/teamTitleStyle"
+                android:text="@string/teamAName" />
+
+            <TextView
+                android:id="@+id/teamAScore"
+                style="@style/scoreStyle"
+                android:text="@string/teamAScore" />
+
+            <Button
+                android:id="@+id/threePointsA"
+                style="@style/btnDesign"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/threePointText"
+                android:onClick="add1000ForTeamA"/>
+
+            <Button
+                android:id="@+id/twoPointsA"
+                style="@style/btnDesign"
+                android:text="@string/twoPointText"
+                android:onClick="add100ForTeamA"/>
+
+            <Button
+                android:id="@+id/onePointA"
+                style="@style/btnDesign"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/freeThrowText"
+                android:onClick="add50ForTeamA"/>
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/tableLayout">
+
+            <TextView
+                style="@style/teamTitleStyle"
+                android:text="@string/teamBName" />
+
+            <TextView
+                android:id="@+id/teamBScore"
+                style="@style/scoreStyle"
+                android:text="@string/teamBscore" />
+
+            <Button
+                android:id="@+id/threePointsB"
+                style="@style/btnDesign"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/threePointText"
+                android:onClick="add1000ForTeamB"/>
+
+            <Button
+                android:id="@+id/twoPointsB"
+                style="@style/btnDesign"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/twoPointText"
+                android:onClick="add100ForTeamB"/>
+
+            <Button
+                android:id="@+id/onePointB"
+                style="@style/btnDesign"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/freeThrowText"
+                android:onClick="add50ForTeamB"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="Shake to Clear"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:id="@+id/textView" />
+
+</RelativeLayout>

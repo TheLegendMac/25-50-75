@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Make it Rain!</string>
+    <string name="threePointText">+$1000</string>
+    <string name="freeThrowText">+$50</string>
+    <string name="twoPointText">+$100</string>
+    <string name="teamAScore">$0</string>
+    <string name="teamBscore">$0</string>
+    <string name="teamBName">Noogle</string>
+    <string name="teamAName">Banana</string>
+</resources>
