@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void displayForTeamA(int score) {
         TextView scoreView = findViewById(R.id.teamAScore);
-        scoreView.setText(String.valueOf(score));
+        scoreView.setText(String.valueOf("$" + score));
     }
 
     public void add1000ForTeamB(View v) {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void displayForTeamB(int score) {
         TextView scoreView = findViewById(R.id.teamBScore);
-        scoreView.setText(String.valueOf(score));
+        scoreView.setText(String.valueOf("$" + score));
     }
 
     private final SensorEventListener sensorListener = new SensorEventListener() {
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 displayForTeamA(teamACash);
                 displayForTeamB(teamBCash);
 
-                Toast toast = Toast.makeText(MainActivity.this, "Money Cleared!",Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(MainActivity.this, "Money Cleared!", Toast.LENGTH_SHORT);
                 toast.show();
             }
 
