@@ -10,4 +10,3 @@ Note:
 Best played on tablets
 
 
-https://github.com/TheLegendMac/25-50-75/blob/master/device-2018-05-19-175306.png
