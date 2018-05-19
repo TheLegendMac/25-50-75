@@ -1,110 +1,95 @@
 package com.macrealstudios.practiceset2;
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/*Purpose:
+    Try to score points in this two-player tapping frenzy game. Reach 75 points while eliminating points from your opponent and you win. Drop to 25 points and you lose.  Easy and simple!
+
+    Note: Best played on tablets.
+
+    Icon provided by:
+    asianson.design
+ */
+
 public class MainActivity extends AppCompatActivity {
 
-    int teamACash = 0;
-    int teamBCash = 0;
-    //Current Acc, last, and value with gravity
-    private SensorManager sm;
-    private float acelVal, acelLast, shake;
+    //Initializing global score variables for both teams
+    int rocketPoints = 50;
+    int spursPoints = 50;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        sm.registerListener(sensorListener, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
-
-        acelVal = SensorManager.GRAVITY_EARTH;
-        acelLast = SensorManager.GRAVITY_EARTH;
-        shake = 0.00f;
-
     }
 
-    public void add1000ForTeamA(View v) {
-        teamACash = teamACash + 1000;
-        displayForTeamA(teamACash);
+    //Resets the score when the user taps on "Tap to clear"
+    public void tapReset(View view) {
+        rocketPoints = 50;
+        spursPoints = 50;
+        displayScoreForRocket(rocketPoints);
+        displayScoreForSpurs(spursPoints);
+
+        Toast.makeText(MainActivity.this, R.string.score_cleared_toast, Toast.LENGTH_SHORT).show();
     }
 
-    public void add100ForTeamA(View v) {
-        teamACash = teamACash + 100;
-        displayForTeamA(teamACash);
+    //Add one point for team Rocket
+    public void addOneForRocket(View v) {
+        rocketPoints = rocketPoints + 1;
+        displayScoreForRocket(rocketPoints);
     }
 
-    public void add50ForTeamA(View v) {
-        teamACash = teamACash + 50;
-        displayForTeamA(teamACash);
-    }
-
-    /**
-     * Displays the given score for Team A.
-     */
-    public void displayForTeamA(int score) {
-        TextView scoreView = findViewById(R.id.teamAScore);
-        scoreView.setText(String.valueOf("$" + score));
-    }
-
-    public void add1000ForTeamB(View v) {
-        teamBCash = teamBCash + 1000;
-        displayForTeamB(teamBCash);
-    }
-
-    public void add100ForTeamB(View v) {
-        teamBCash = teamBCash + 100;
-        displayForTeamB(teamBCash);
-    }
-
-    public void add50ForTeamB(View v) {
-        teamBCash = teamBCash + 50;
-        displayForTeamB(teamBCash);
+    //Deduct five points from team Rocket
+    public void minusFiveForRocket(View v) {
+        rocketPoints = rocketPoints + -5;
+        displayScoreForRocket(rocketPoints);
     }
 
     /**
-     * Displays the given score for Team B.
+     * Displays the given score for Team Rocket. If score is 75 or more this team will win. If it is 25 or less they lose
      */
-    public void displayForTeamB(int score) {
-        TextView scoreView = findViewById(R.id.teamBScore);
-        scoreView.setText(String.valueOf("$" + score));
+    public void displayScoreForRocket(int score) {
+        TextView scoreView = findViewById(R.id.team_rocket_score);
+        scoreView.setText(String.valueOf(score));
+
+        if (score >= 75) {
+            scoreView.setText(String.valueOf("Winner"));
+        } else if (score <= 25) {
+            scoreView.setText(String.valueOf("Dead"));
+        }
     }
 
-    private final SensorEventListener sensorListener = new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            float x = sensorEvent.values[0];
-            float y = sensorEvent.values[1];
-            float z = sensorEvent.values[2];
-            acelLast = acelVal;
-            acelVal = (float) Math.sqrt((double) (x * x + y * y + z * z));
-            float delta = acelVal - acelLast;
-            shake = shake * 0.9f + delta;
+    //Add one point for team Spurs
+    public void addOneForSpurs(View v) {
+        spursPoints = spursPoints + 1;
+        displayScoreForSpurs(spursPoints);
+    }
 
-            if (shake > 12) {
-                teamACash = 0;
-                teamBCash = 0;
-                displayForTeamA(teamACash);
-                displayForTeamB(teamBCash);
+    //Deduct five points from team Spurs
+    public void minusFiveForSpurs(View v) {
+        spursPoints = spursPoints - 5;
+        displayScoreForSpurs(spursPoints);
 
-                Toast toast = Toast.makeText(MainActivity.this, "Money Cleared!", Toast.LENGTH_SHORT);
-                toast.show();
-            }
+    }
 
+    /**
+     * Displays the given score for team Spurs. If score is 75 or more this team will win. If it is 25 or less they lose
+     */
+    public void displayScoreForSpurs(int score) {
+        TextView scoreView = findViewById(R.id.team_spur_score);
+        scoreView.setText(String.valueOf(score));
+
+        if (score >= 75) {
+            scoreView.setText(String.valueOf("Winner"));
+        } else if (score <= 25) {
+            scoreView.setText(String.valueOf("Dead"));
         }
-
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int i) {
-
-        }
-    };
+    }
 }

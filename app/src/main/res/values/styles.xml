@@ -18,26 +18,26 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="btnDesign">
+    <style name="point_btn_style">
         <item name="android:textColor">@color/textColor</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginRight">15dp</item>
-        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
         <item name="android:layout_marginBottom">10dp</item>
-        <item name="android:padding">25dp</item>
+        <item name="android:padding">45dp</item>
     </style>
 
-    <style name="scoreStyle">
+    <style name="score_style">
         <item name="android:layout_marginBottom">25dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">48sp</item>
+        <item name="android:textSize">50sp</item>
     </style>
 
-    <style name="teamTitleStyle">
+    <style name="team_title_style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/montserrat</item>

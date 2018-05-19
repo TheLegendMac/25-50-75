@@ -5,76 +5,70 @@
     android:layout_height="match_parent"
     tools:context="com.macrealstudios.practiceset2.MainActivity">
 
-
     <LinearLayout
-        android:id="@+id/scoreLayout"
+        android:id="@+id/score_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout style="@style/tableLayout">
 
             <TextView
-                style="@style/teamTitleStyle"
-                android:text="@string/teamAName" />
+                style="@style/team_title_style"
+                android:text="@string/team_rocket_title" />
 
             <TextView
-                android:id="@+id/teamAScore"
-                style="@style/scoreStyle"
-                android:text="@string/teamAScore" />
+                android:id="@+id/team_rocket_score"
+                style="@style/score_style"
+                android:text="@string/team_rocket_score_text" />
 
             <Button
-                android:id="@+id/threePointsA"
-                style="@style/btnDesign"
+                style="@style/point_btn_style"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/threePointText"
-                android:onClick="add1000ForTeamA"/>
+                android:onClick="addOneForRocket"
+                android:text="@string/add_one_text" />
 
             <Button
-                android:id="@+id/twoPointsA"
-                style="@style/btnDesign"
-                android:text="@string/twoPointText"
-                android:onClick="add100ForTeamA"/>
+                style="@style/point_btn_style"
+                android:onClick="minusFiveForRocket"
+                android:text="@string/minus_five_text" />
 
             <Button
-                android:id="@+id/onePointA"
-                style="@style/btnDesign"
+                style="@style/point_btn_style"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/freeThrowText"
-                android:onClick="add50ForTeamA"/>
+                android:onClick="addOneForRocket"
+                android:text="@string/add_one_text" />
 
         </LinearLayout>
+
 
         <LinearLayout style="@style/tableLayout">
 
             <TextView
-                style="@style/teamTitleStyle"
-                android:text="@string/teamBName" />
+                style="@style/team_title_style"
+                android:text="@string/team_spurs_title" />
 
             <TextView
-                android:id="@+id/teamBScore"
-                style="@style/scoreStyle"
-                android:text="@string/teamBscore" />
+                android:id="@+id/team_spur_score"
+                style="@style/score_style"
+                android:text="@string/team_spurs_score_text" />
 
             <Button
-                android:id="@+id/threePointsB"
-                style="@style/btnDesign"
+                style="@style/point_btn_style"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/threePointText"
-                android:onClick="add1000ForTeamB"/>
+                android:onClick="addOneForSpurs"
+                android:text="@string/add_one_text" />
 
             <Button
-                android:id="@+id/twoPointsB"
-                style="@style/btnDesign"
+                style="@style/point_btn_style"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/twoPointText"
-                android:onClick="add100ForTeamB"/>
+                android:onClick="minusFiveForSpurs"
+                android:text="@string/minus_five_text" />
 
             <Button
-                android:id="@+id/onePointB"
-                style="@style/btnDesign"
+                style="@style/point_btn_style"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/freeThrowText"
-                android:onClick="add50ForTeamB"/>
+                android:onClick="addOneForSpurs"
+                android:text="@string/freeThrowText" />
 
         </LinearLayout>
     </LinearLayout>
@@ -83,14 +77,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_marginBottom="15dp"
         android:gravity="center"
-        android:text="Shake to Clear"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:id="@+id/textView" />
-
+        android:onClick="tapReset"
+        android:text="@string/clear_text"
+        android:textSize="18sp" />
 </RelativeLayout>
